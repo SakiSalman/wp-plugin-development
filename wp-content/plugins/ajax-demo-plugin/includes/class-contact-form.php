@@ -11,6 +11,7 @@ class ADMP_CONTACT_FORM
         add_action('wp_ajax_nopriv_admp_submit_contact_form', [$this, 'handle_contact_form_submission']);
         add_action('manage_supports_posts_columns', [$this, 'add_supports_columns']);
         add_action('manage_supports_posts_custom_column', [$this, 'render_supports_custom_column'], 10, 2);
+      add_filter('manage_edit-supports_sortable_columns', [$this, 'set_custom_supports_sortable_columns']);
     }
 
     function render_contact_form()
@@ -93,6 +94,13 @@ class ADMP_CONTACT_FORM
             $message = get_post_meta($post_id, 'message', true);
             echo esc_html($message);
         }
+    }
+
+    function set_custom_supports_sortable_columns($columns)
+    {
+        $columns['email'] = 'email';
+        $columns['message'] = 'message';
+        return $columns;
     }
 
 }
