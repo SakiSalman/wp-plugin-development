@@ -1,0 +1,141 @@
+<div style="background:var(--bg);">
+    <div class="wrap">
+      <div class="header">
+        <div class="title-block">
+          <div class="logo">AP</div>
+          <div>
+            <h1>Admin Panel Demo <span class="small">v1.0</span></h1>
+            <p class="lead">Manage plugin settings, integrations and view quick stats.</p>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn ghost" onclick="exportSettings()">Export</button>
+          <button class="btn primary" onclick="saveSettings()">Save Settings</button>
+        </div>
+      </div>
+  
+      <div class="grid">
+        <aside class="sidebar">
+          <strong>Navigation</strong>
+          <nav class="nav" role="tablist">
+            <button class="active" data-target="dashboard">Dashboard</button>
+            <button data-target="settings">General Settings</button>
+            <button data-target="appearance">Appearance</button>
+            <button data-target="users">Authors / Users</button>
+            <button data-target="logs">Logs</button>
+          </nav>
+  
+          <hr style="margin:12px 0;border:none;border-top:1px solid #f0f5fb">
+          <div class="small">Support: <a href="#">Contact</a></div>
+        </aside>
+  
+        <main class="main">
+          <!-- Dashboard Tab -->
+          <section id="dashboard" class="panel tab active">
+            <div class="cards">
+              <div class="card">
+                <div class="stat">1,234</div>
+                <div class="stat-sub">Active Stores</div>
+              </div>
+              <div class="card">
+                <div class="stat">৳ 78,112</div>
+                <div class="stat-sub">Monthly Revenue</div>
+              </div>
+              <div class="card">
+                <div class="stat">32</div>
+                <div class="stat-sub">Pending Orders</div>
+              </div>
+            </div>
+  
+            <div style="margin-top:14px;display:grid;grid-template-columns:2fr 1fr;gap:14px;">
+              <div class="panel">
+                <h3>Recent Orders</h3>
+                <table>
+                  <thead><tr><th>Order</th><th>Store</th><th>Status</th><th>Amount</th></tr></thead>
+                  <tbody>
+                    <tr><td>#5012</td><td>BookShop</td><td><span class="badge ok">Completed</span></td><td>৳ 2,345</td></tr>
+                    <tr><td>#5011</td><td>NovelMart</td><td><span class="badge bad">Refunded</span></td><td>৳ 1,500</td></tr>
+                    <tr><td>#5010</td><td>PaperHouse</td><td><span class="badge ok">Processing</span></td><td>৳ 4,200</td></tr>
+                  </tbody>
+                </table>
+              </div>
+  
+              <div class="panel">
+                <h3>Quick Settings</h3>
+                <div class="field"><label>Maintenance Mode</label><div class="toggle"><input id="maintenance" type="checkbox"> <label for="maintenance" class="small">Enable</label></div></div>
+                <div class="field"><label>Cache</label><select><option>Off</option><option selected>Auto</option><option>Manual</option></select></div>
+                <div class="field"><label>Debug</label><div class="small">Log level: <select><option>Info</option><option selected>Warning</option><option>Error</option></select></div></div>
+              </div>
+            </div>
+          </section>
+  
+          <!-- Settings Tab -->
+          <section id="settings" class="panel tab" style="display:none">
+            <h3>General Settings</h3>
+            <form id="settingsForm">
+              <div class="field">
+                <label>Site Title</label>
+                <input type="text" name="site_title" value="Pure Service" />
+              </div>
+              <div class="row">
+                <div class="col field">
+                  <label>Primary Email</label>
+                  <input type="text" name="email" value="info@pureservice.store" />
+                </div>
+                <div class="col field">
+                  <label>Currency</label>
+                  <select name="currency"><option>BDT</option><option selected>USD</option><option>EUR</option></select>
+                </div>
+              </div>
+  
+              <div class="field">
+                <label>Welcome Message</label>
+                <textarea name="welcome">Welcome to Pure Service admin.</textarea>
+              </div>
+  
+              <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px">
+                <button type="button" class="btn ghost" onclick="resetForm()">Reset</button>
+                <button type="button" class="btn primary" onclick="saveSettings()">Save</button>
+              </div>
+            </form>
+          </section>
+  
+          <!-- Appearance Tab -->
+          <section id="appearance" class="panel tab" style="display:none">
+            <h3>Appearance</h3>
+            <div class="field"><label>Brand Color</label><input type="text" value="#2563eb"/></div>
+            <div class="field"><label>Logo</label><input type="text" value="/wp-content/uploads/logo.png"/></div>
+            <div class="field"><label>Admin Accent</label>
+              <div class="row"><input type="text" placeholder="#2563eb" /> <input type="text" placeholder="#06b6d4" /></div>
+            </div>
+          </section>
+  
+          <!-- Users Tab -->
+          <section id="users" class="panel tab" style="display:none">
+            <h3>Authors / Users</h3>
+            <table>
+              <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+              <tbody>
+                <tr><td>J. Smith</td><td>john@example.com</td><td>Admin</td><td><button class="btn">Edit</button></td></tr>
+                <tr><td>A. Khan</td><td>akhan@example.com</td><td>Author</td><td><button class="btn">Edit</button></td></tr>
+              </tbody>
+            </table>
+          </section>
+  
+          <!-- Logs Tab -->
+          <section id="logs" class="panel tab" style="display:none">
+            <h3>Activity Logs</h3>
+            <div class="small">Showing last 25 events</div>
+            <ul style="margin-top:12px;padding-left:18px">
+              <li class="small">[2025-11-22] Settings updated by <strong>admin</strong></li>
+              <li class="small">[2025-11-21] New store created: <strong>BookShop</strong></li>
+              <li class="small">[2025-11-20] Order #5010 placed</li>
+            </ul>
+          </section>
+  
+        </main>
+      </div>
+    </div>
+  
+  
+  </div>
